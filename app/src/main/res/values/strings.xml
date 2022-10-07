@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ZimoziTennisAppTask</string>
+    <string name="city_country">%1s , %2s</string>
+</resources>
