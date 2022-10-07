@@ -58,6 +58,7 @@ dependencies {
     implementation 'androidx.databinding:databinding-common:7.3.0'
 
     implementation "androidx.fragment:fragment-ktx:1.5.3"
+    implementation 'androidx.preference:preference-ktx:1.1.1'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

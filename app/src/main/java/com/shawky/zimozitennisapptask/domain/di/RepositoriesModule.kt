@@ -1,4 +1,4 @@
-package com.shawky.zimozitennisapptask.data.di
+package com.shawky.zimozitennisapptask.domain.di
 
 import com.shawky.zimozitennisapptask.data.services.Services
 import com.shawky.zimozitennisapptask.domain.repositories.tennisPlayersRepository.TennisPlayersRepository

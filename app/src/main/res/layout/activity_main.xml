@@ -45,12 +45,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
             android:visibility="gone"
             android:gravity="center"
             visible="@{(PlayersVm.tennisPlayers.isFailure().first)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(view) -> PlayersVm.showAllTennisPlayers(true)}"
             android:text="@{PlayersVm.tennisPlayers.getAnyMessage}"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintBottom_toBottomOf="parent"

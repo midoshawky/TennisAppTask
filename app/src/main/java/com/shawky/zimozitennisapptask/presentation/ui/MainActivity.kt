@@ -1,20 +1,30 @@
 package com.shawky.zimozitennisapptask.presentation.ui
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.shawky.zimozitennisapptask.R
+import com.shawky.zimozitennisapptask.data.services.PrefrencesManager.AppPreferenceManager
 import com.shawky.zimozitennisapptask.databinding.ActivityMainBinding
 import com.shawky.zimozitennisapptask.domain.models.TennisPlayer
 import com.shawky.zimozitennisapptask.presentation.adapters.GenericRecyclerAdapter
 import com.shawky.zimozitennisapptask.presentation.adapters.RecyclerViewAdaptersBinding.classesAdapterBinding
 import com.shawky.zimozitennisapptask.presentation.viewModel.PlayersViewModel
+import com.shawky.zimozitennisapptask.shared.Constants
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
 
     private lateinit var playersListAdapter : GenericRecyclerAdapter<TennisPlayer>
     private val viewModel : PlayersViewModel by viewModels()
+
+    @Inject
+    lateinit var preferencesManager : AppPreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +42,14 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
         }
 
 
-        viewModel.showAllTennisPlayers()
+        viewModel.showAllTennisPlayers(false)
+
+
+
+        lifecycleScope.launch {
+            Log.i("SavedData",preferencesManager.getSavedDataList<TennisPlayer>(this,Constants.PLAYERS).toString())
+        }
+
     }
 
 

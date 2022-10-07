@@ -22,10 +22,10 @@ class PlayersViewModel @Inject constructor(
     private val _tennisPlayers : MutableStateFlow<ResultState<List<TennisPlayer>>?> = MutableStateFlow(ResultState.Loading)
     val tennisPlayers = _tennisPlayers
 
-    fun showAllTennisPlayers(): StateFlow<ResultState<List<TennisPlayer>>?> {
+    fun showAllTennisPlayers(locally:Boolean): StateFlow<ResultState<List<TennisPlayer>>?> {
         viewModelScope.launch {
-
-            tennisPlayersUseCase.invoke().collect {
+            _tennisPlayers.emit(ResultState.Loading)
+            tennisPlayersUseCase.invoke(locally).collect {
                 Log.i("DataFlow","Result $it")
                 _tennisPlayers.emit(it)
             }

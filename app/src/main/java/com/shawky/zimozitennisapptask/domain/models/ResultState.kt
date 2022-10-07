@@ -41,7 +41,7 @@ sealed class ResultState<out T> {
         get() {
             if (this is EmptyData) return this.errorMsg ?: "No Data"
             if (this is Error) return this.error
-            if (this is NetworkException) return this.errorMsg ?: "No Connection"
+            if (this is NetworkException) return "No Connection"
             return ""
         }
 }
