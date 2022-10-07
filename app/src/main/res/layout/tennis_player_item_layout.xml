@@ -29,9 +29,11 @@
 
                 <ImageView
                     android:id="@+id/player_img_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:scaleType="centerCrop"
+                    url="@{Player.img}"
+                    placeHolder="@drawable/player_placeholder"
                     tools:srcCompat="@tools:sample/avatars" />
             </androidx.cardview.widget.CardView>
 
@@ -57,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_baseline_location_on_24"
                     android:gravity="center_vertical"
-                    android:paddingHorizontal="15dp"
+                    android:paddingHorizontal="10dp"
                     android:text="@{String.format(@string/city_country,Player.city,Player.country) , default = `Alexandria,Egypt`}"
                     android:textColor="@android:color/darker_gray"
                     app:drawableTint="@android:color/darker_gray" />

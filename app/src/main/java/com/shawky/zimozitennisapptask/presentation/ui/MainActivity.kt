@@ -19,8 +19,6 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.showAllTennisPlayers()
-
         playersListAdapter = GenericRecyclerAdapter(
             arrayListOf(),
             R.layout.tennis_player_item_layout,
@@ -30,7 +28,11 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
         binding.apply {
             lifecycleOwner = this@MainActivity
             playersAdapter = playersListAdapter
+            playersVm = viewModel
         }
+
+
+        viewModel.showAllTennisPlayers()
     }
 
 

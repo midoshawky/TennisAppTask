@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.shawky.zimozitennisapptask.domain.models.ResultState"/>
         <variable
             name="PlayersVm"
             type="com.shawky.zimozitennisapptask.presentation.viewModel.PlayersViewModel" />
@@ -19,13 +20,42 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/players_rv"
+            isLinear="@{true}"
+            recyclerAdapter="@{PlayersAdapter}"
+            state="@{PlayersVm.tennisPlayers}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            recyclerAdapter="@{PlayersAdapter}"
             tools:listitem="@layout/tennis_player_item_layout" />
+
+        <ProgressBar
+            android:id="@+id/loading_bar"
+            style="?android:attr/progressBarStyle"
+            android:visibility="visible"
+            visible="@{PlayersVm.tennisPlayers.loading == true ? true : false}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:visibility="gone"
+            android:gravity="center"
+            visible="@{(PlayersVm.tennisPlayers.isFailure().first)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{PlayersVm.tennisPlayers.getAnyMessage}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

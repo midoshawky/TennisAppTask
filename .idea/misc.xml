@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16185410334346503" />
-        <entry key="app/src/main/res/layout/tennis_player_item_layout.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/ic_tennis_player_with_racket_svgrepo_com.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/tennis_player_item_layout.xml" value="0.33" />
       </map>
     </option>
   </component>

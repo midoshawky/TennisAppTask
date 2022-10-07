@@ -2,6 +2,7 @@ package com.shawky.zimozitennisapptask.presentation.viewModel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.shawky.zimozitennisapptask.domain.models.ResultState
 import com.shawky.zimozitennisapptask.domain.models.TennisPlayer
@@ -18,11 +19,12 @@ class PlayersViewModel @Inject constructor(
     private val tennisPlayersUseCase : GetTennisPlayersUseCase
 ) : ViewModel() {
 
-    private val _tennisPlayers : MutableStateFlow<ResultState<List<TennisPlayer>>?> = MutableStateFlow(null)
+    private val _tennisPlayers : MutableStateFlow<ResultState<List<TennisPlayer>>?> = MutableStateFlow(ResultState.Loading)
     val tennisPlayers = _tennisPlayers
 
     fun showAllTennisPlayers(): StateFlow<ResultState<List<TennisPlayer>>?> {
         viewModelScope.launch {
+
             tennisPlayersUseCase.invoke().collect {
                 Log.i("DataFlow","Result $it")
                 _tennisPlayers.emit(it)
