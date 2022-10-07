@@ -1,6 +1,6 @@
 package com.shawky.zimozitennisapptask.presentation.ui
 
-import android.content.SharedPreferences
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -11,9 +11,11 @@ import com.shawky.zimozitennisapptask.databinding.ActivityMainBinding
 import com.shawky.zimozitennisapptask.domain.models.TennisPlayer
 import com.shawky.zimozitennisapptask.presentation.adapters.GenericRecyclerAdapter
 import com.shawky.zimozitennisapptask.presentation.adapters.RecyclerViewAdaptersBinding.classesAdapterBinding
+import com.shawky.zimozitennisapptask.presentation.ui.base.BaseBindingActivity
 import com.shawky.zimozitennisapptask.presentation.viewModel.PlayersViewModel
 import com.shawky.zimozitennisapptask.shared.Constants
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -1,8 +1,6 @@
 package com.shawky.zimozitennisapptask.data.di
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.preference.PreferenceManager
 import com.shawky.zimozitennisapptask.data.services.PrefrencesManager.AppPreferenceManager
 import dagger.Module
 import dagger.Provides
